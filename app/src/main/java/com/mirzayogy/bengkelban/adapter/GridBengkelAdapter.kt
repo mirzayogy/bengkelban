@@ -1,6 +1,7 @@
 package com.mirzayogy.bengkelban.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.mirzayogy.bengkelban.R
+import com.mirzayogy.bengkelban.activity.DetailActivity
+import com.mirzayogy.bengkelban.activity.ImageActivity
 import com.mirzayogy.bengkelban.model.Bengkel
 
 class GridBengkelAdapter(val context: Context, val listBengkels: ArrayList<Bengkel>) : RecyclerView.Adapter<GridBengkelAdapter.GridViewHolder>() {
@@ -23,11 +26,21 @@ class GridBengkelAdapter(val context: Context, val listBengkels: ArrayList<Bengk
     }
 
     override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
+        val bengkel = Bengkel()
+        bengkel.name = listBengkels[position].name
+        bengkel.owner = listBengkels[position].owner
+        bengkel.photo = listBengkels[position].photo
         Glide.with(holder.itemView.context)
             .load(listBengkels[position].photo)
             .error(ContextCompat.getDrawable(context, R.drawable.no_img))
 //            .apply(RequestOptions().override(350, 550))
             .into(holder.imgPhoto)
+        
+        holder.itemView.setOnClickListener {
+            val moveWithDataIntent = Intent(context, DetailActivity::class.java)
+            moveWithDataIntent.putExtra(DetailActivity.EXTRA_BENGKEL, bengkel)
+            context.startActivity(moveWithDataIntent)
+        }
     }
 
     inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.mirzayogy.bengkelban.R
+import com.mirzayogy.bengkelban.activity.DetailActivity
 import com.mirzayogy.bengkelban.activity.ImageActivity
 import com.mirzayogy.bengkelban.model.Bengkel
 
@@ -48,7 +49,9 @@ class ListBengkelAdapter(val context: Context, val listBengkel: ArrayList<Bengke
             context.startActivity(moveWithDataIntent)
         }
         holder.itemView.setOnClickListener {
-            onItemClickListener?.invoke(listBengkel[holder.adapterPosition])
+            val moveWithDataIntent = Intent(context, DetailActivity::class.java)
+            moveWithDataIntent.putExtra(DetailActivity.EXTRA_BENGKEL, bengkel)
+            context.startActivity(moveWithDataIntent)
         }
     }
 
