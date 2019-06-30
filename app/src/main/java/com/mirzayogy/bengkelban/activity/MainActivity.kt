@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.mirzayogy.bengkelban.R
+import com.mirzayogy.bengkelban.adapter.CardViewBengkelAdapter
 import com.mirzayogy.bengkelban.adapter.GridBengkelAdapter
 import com.mirzayogy.bengkelban.adapter.ListBengkelAdapter
 import com.mirzayogy.bengkelban.data.BengkelData
@@ -30,15 +31,7 @@ class MainActivity : AppCompatActivity() {
         showRecyclerList()
     }
 
-    private fun showRecyclerList() {
-        rvCategory.layoutManager = LinearLayoutManager(this)
-        val listBengkelAdapter = ListBengkelAdapter(this,list)
-        rvCategory.adapter = listBengkelAdapter
 
-        listBengkelAdapter.onItemClickListener = { bengkel ->
-            showSelectedBengkel(bengkel)
-        }
-    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -58,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                 showRecyclerGrid();
             }
             R.id.action_cardview -> {
+                showRecyclerCardView()
             }
         }
     }
@@ -70,5 +64,21 @@ class MainActivity : AppCompatActivity() {
         rvCategory.layoutManager = GridLayoutManager(this, 3)
         val gridHeroAdapter = GridBengkelAdapter(this,list)
         rvCategory.adapter = gridHeroAdapter
+    }
+
+    private fun showRecyclerList() {
+        rvCategory.layoutManager = LinearLayoutManager(this)
+        val listBengkelAdapter = ListBengkelAdapter(this,list)
+        rvCategory.adapter = listBengkelAdapter
+
+        listBengkelAdapter.onItemClickListener = { bengkel ->
+            showSelectedBengkel(bengkel)
+        }
+    }
+
+    private fun showRecyclerCardView() {
+        rvCategory.layoutManager = LinearLayoutManager(this)
+        val cardViewBengkelAdapter = CardViewBengkelAdapter(this,list)
+        rvCategory.adapter = cardViewBengkelAdapter
     }
 }

@@ -6,4 +6,7 @@
     <string name="grid">Grid</string>
     <string name="with_cardview">With CardView</string>
     <string name="workshop_name">Workshop Name</string>
+    <string name="description">Description</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
 </resources>

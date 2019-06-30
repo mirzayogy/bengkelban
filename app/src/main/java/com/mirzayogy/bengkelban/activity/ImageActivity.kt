@@ -22,7 +22,7 @@ class ImageActivity : AppCompatActivity() {
             .with(this)
             .load(bengkel.photo)
             .into(imageView)
-        Toast.makeText(this,bengkel.photo, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this,bengkel.photo, Toast.LENGTH_SHORT).show()
     }
 
     companion object{
