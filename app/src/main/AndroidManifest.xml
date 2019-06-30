@@ -13,7 +13,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:replace="android:icon,android:theme">
-        <activity android:name=".activity.ImageActivity">
+        <activity
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+                android:name=".activity.ImageActivity">
         </activity>
         <activity android:name=".activity.MainActivity">
             <intent-filter>
