@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.mirzayogy.bengkelban.R
+import com.mirzayogy.bengkelban.activity.ImageActivity
 import com.mirzayogy.bengkelban.model.Bengkel
 
 class ListBengkelAdapter(val context: Context, val listBengkel: ArrayList<Bengkel>) : RecyclerView.Adapter<ListBengkelAdapter.CategoryViewHolder>(){
@@ -34,16 +35,16 @@ class ListBengkelAdapter(val context: Context, val listBengkel: ArrayList<Bengke
 
         holder.tvName.text = bengkel.name
         holder.tvOwner.text = bengkel.owner
-//        Glide.with(holder.itemView.context)
-//            .load(listBengkel[position].photo)
+        Glide.with(holder.itemView.context)
+            .load(listBengkel[position].photo)
 //            .apply(RequestOptions().override(55, 55))
-//            .into(holder.imgPhoto)
+            .into(holder.imgPhoto)
 
-//        holder.imgPhoto.setOnClickListener{
-//            val moveWithDataIntent = Intent(context, ImageActivity::class.java)
-//            moveWithDataIntent.putExtra(ImageActivity.EXTRA_PHOTO, bengkel)
-//            context.startActivity(moveWithDataIntent)
-//        }
+        holder.imgPhoto.setOnClickListener{
+            val moveWithDataIntent = Intent(context, ImageActivity::class.java)
+            moveWithDataIntent.putExtra(ImageActivity.EXTRA_PHOTO, bengkel)
+            context.startActivity(moveWithDataIntent)
+        }
         holder.itemView.setOnClickListener {
             onItemClickListener?.invoke(listBengkel[holder.adapterPosition])
         }
