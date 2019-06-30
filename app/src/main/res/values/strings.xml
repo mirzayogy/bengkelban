@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">bengkelban</string>
+    <string name="app_name">Tire Patches Workshop</string>
+    <string name="bengkel_name">Bengkel Name</string>
+    <string name="owner">Owner</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+    <string name="with_cardview">With CardView</string>
 </resources>
