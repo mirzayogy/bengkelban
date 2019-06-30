@@ -2,6 +2,7 @@ package com.mirzayogy.bengkelban.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +38,7 @@ class ListBengkelAdapter(val context: Context, val listBengkel: ArrayList<Bengke
         holder.tvOwner.text = bengkel.owner
         Glide.with(holder.itemView.context)
             .load(listBengkel[position].photo)
+            .error(ContextCompat.getDrawable(context, R.drawable.no_img))
 //            .apply(RequestOptions().override(55, 55))
             .into(holder.imgPhoto)
 

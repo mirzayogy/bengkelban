@@ -18,7 +18,10 @@ class ImageActivity : AppCompatActivity() {
         val imageView: ImageView = findViewById(R.id.imageView)
 
 
-        Glide.with(this).load(bengkel.photo).into(imageView)
+        Glide
+            .with(this)
+            .load(bengkel.photo)
+            .into(imageView)
         Toast.makeText(this,bengkel.photo, Toast.LENGTH_SHORT).show()
     }
 
