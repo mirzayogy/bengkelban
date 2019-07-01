@@ -30,10 +30,7 @@ class ListBengkelAdapter(val context: Context, val listBengkel: ArrayList<Bengke
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
 
-        val bengkel = Bengkel()
-        bengkel.name = listBengkel[position].name
-        bengkel.owner = listBengkel[position].owner
-        bengkel.photo = listBengkel[position].photo
+        val bengkel = listBengkel[position]
 
         holder.tvName.text = bengkel.name
         holder.tvOwner.text = bengkel.owner
