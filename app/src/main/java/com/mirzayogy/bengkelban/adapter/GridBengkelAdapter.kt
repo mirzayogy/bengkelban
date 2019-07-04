@@ -27,7 +27,7 @@ class GridBengkelAdapter(val context: Context, val listBengkels: ArrayList<Bengk
 
     override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
         val bengkel = listBengkels[position]
-        
+
         Glide.with(holder.itemView.context)
             .load(listBengkels[position].photo)
             .error(ContextCompat.getDrawable(context, R.drawable.no_img))
